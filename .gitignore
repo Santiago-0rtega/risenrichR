@@ -109,3 +109,9 @@ paper/paper_files/libs/quarto-html/tippy.css
 paper/paper_files/libs/quarto-html/tippy.umd.min.js
 paper/paper_files/libs/quarto-html/axe/axe-check.js
 paper/paper_files/libs/quarto-html/tabsets/tabsets.js
+
+# Ignore all .ris files (outputs, personal data, etc.)
+*.ris
+
+# BUT! Do NOT ignore my example data
+!data/*.ris

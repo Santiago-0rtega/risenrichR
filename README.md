@@ -44,6 +44,13 @@ ris-enrich input_file.ris -o output_file.ris
     ris-enrich input_file.ris -o output_file.ris --email you@example.com
     ```
 
+## Usage Example
+
+To test the tool with the included sample data, run:
+
+```bash
+ris-enrich data/GoogleScholarPortugueseMateChoiceExample.ris
+
 ## Contributing
 
 We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
