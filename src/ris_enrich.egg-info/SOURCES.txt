@@ -1,0 +1,12 @@
+LICENSE
+README.md
+pyproject.toml
+src/ris_enrich/__init__.py
+src/ris_enrich/enricher.py
+src/ris_enrich.egg-info/PKG-INFO
+src/ris_enrich.egg-info/SOURCES.txt
+src/ris_enrich.egg-info/dependency_links.txt
+src/ris_enrich.egg-info/entry_points.txt
+src/ris_enrich.egg-info/requires.txt
+src/ris_enrich.egg-info/top_level.txt
+tests/test_enricher.py
