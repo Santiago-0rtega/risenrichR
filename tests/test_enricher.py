@@ -6,7 +6,10 @@ def test_clean_html_tags():
     assert clean_html_tags(raw) == "This is an abstract with tags."
 
 def test_normalize_text():
-    assert normalize_text("Seleção Sexual") == "selecao sexual"
+    # The code should PRESERVE the accent now, just lowercasing it.
+    assert normalize_text("Seleção Sexual") == "seleção sexual"
+    
+    # It should still fix full-width characters (Japanese/Chinese standard)
     assert normalize_text("Full-width Ａ") == "fullwidth a"
 
 def test_verify_title_match():
