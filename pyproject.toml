@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ris-enrich"
+version = "0.1.0"
+authors = [
+  { name="Eduardo Santos", email="esantos2@ualberta.ca" }
+]
+description = "An automated tool to enrich RIS bibliography files with full abstracts via academic APIs."
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "rispy",
+    "requests",
+    "rapidfuzz",
+    "unidecode"
+]
+
+[project.scripts]
+ris-enrich = "ris_enrich.enricher:main"
