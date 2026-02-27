@@ -7,11 +7,11 @@ tags:
   - bibliometrics
   - open scholarship
 authors:
-  - name: Eduardo Santos
-    orcid: 0000-0000-0000-0000 # Replace with your ORCID
+  - name: Eduardo S. A. Santos
+    orcid: 0000-0002-0434-3655
     affiliation: 1
 affiliations:
- - name: University of Alberta, Canada
+ - name: Collaboration for Open Science and Synthesis in Ecology and Evolution, Department of Biological Sciences, University of Alberta, Edmonton, AB, T6G 2E9, Canada
    index: 1
 date: 26 February 2026
 bibliography: paper.bib
@@ -25,12 +25,12 @@ Systematic reviews and meta-analyses require rigorous literature screening, a pr
 
 The preparation of a preregistration protocol and the subsequent screening workload in systematic reviews (e.g., in fields like ecology, evolution, and psychology) are heavily reliant on the integrity of the initial bibliographic dataset. While tools exist to optimize search string generation [@Grames2019] or facilitate manual screening (e.g., Rayyan), there is a distinct lack of lightweight tools focused strictly on bibliographic data enrichment post-export. 
 
-When researchers export search results, they are frequently left with snippets rather than full abstracts, rendering title-and-abstract screening virtually impossible without manual intervention. `ris-enrich` automates the recovery of this missing metadata. By prioritizing a sequential API fallback architecture and enforcing an 80% title-similarity threshold using the `difflib` and `unicodedata` libraries, the software ensures high-fidelity data retrieval even across international, diacritic-heavy, and logographic languages. 
+When researchers export search results, they are frequently left with snippets rather than full abstracts, rendering title-and-abstract screening virtually impossible without manual intervention. This is especially common from search records exported from Google Scholar that truncates abstracts. Google Scholar is one of the few search engines that retrieves academic records in non-English languages, thus being an important search engine in attempts to minimize bias in data collection for evidence synthesis studies.  `ris-enrich` automates the recovery of this missing metadata. By prioritizing a sequential API fallback architecture and enforcing an 80% title-similarity threshold using the `difflib` and `unicodedata` libraries, the software ensures high-fidelity data retrieval even across international, diacritic-heavy, and logographic languages. 
 
 `ris-enrich` was developed to directly support the screening workflows of university research centres, seamlessly preparing robust `.ris` datasets for assignment among primary and secondary screeners. 
 
 # Acknowledgements
 
-We acknowledge contributions from [Name any co-authors, e.g., Losia or team members, or funding sources for the centre].
+ESAS, as well as this research work, are supported by the Canada Excellence Research Chairs (CERC) program (grant number CERC-2022-00074).
 
 # References

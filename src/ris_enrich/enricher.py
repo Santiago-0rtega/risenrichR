@@ -286,28 +286,6 @@ def enrich_ris_file(input_path, output_path):
         
     logging.info(f"\nDone! Safely updated {updated_count} abstracts.")
 
-if __name__ == "__main__":
-    # Setup command line argument parsing
-    parser = argparse.ArgumentParser(description="Enrich RIS files with full abstracts via academic APIs.")
-    parser.add_argument("input_file", help="Path to the original .ris file")
-    parser.add_argument("-o", "--output", help="Path to save the enriched .ris file", default=None)
-    parser.add_argument("-l", "--log", help="Path to save the execution log", default="enrichment_log.txt")
-    
-    args = parser.parse_args()
-    
-    # Auto-generate the output filename if one is not explicitly provided
-    if not args.output:
-        base, ext = os.path.splitext(args.input_file)
-        args.output = f"{base}_Enriched{ext}"
-        
-    setup_logging(args.log)
-    
-    # Execute the main pipeline
-    if os.path.exists(args.input_file):
-        enrich_ris_file(args.input_file, args.output)
-    else:
-        logging.error("Fatal Error: Input file not found.")
-
 def main():
     # Setup command line argument parsing
     parser = argparse.ArgumentParser(description="Enrich RIS files with full abstracts via academic APIs.")
