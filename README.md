@@ -32,6 +32,17 @@ ris-enrich input_file.ris -o output_file.ris
 -   `input_file`: Path to the original `.ris` file (Required).
 -   `-o`, `--output`: Path to save the enriched `.ris` file. Defaults to `*_Enriched.ris`.
 -   `-l`, `--log`: Path to save the execution log. Defaults to `enrichment_log.txt`.
+-   `-e`, `--email`: **(optional)** Your email address, which will be included in the User-Agent header when querying the Crossref API. Providing an email helps Crossref identify polite usage and may increase rate limits. You can also set this value by exporting `RIS_ENRICH_EMAIL` in your environment before running the tool:
+
+    ```bash
+    export RIS_ENRICH_EMAIL=you@example.com
+    ris-enrich input_file.ris -o output_file.ris
+    ```
+    or pass it directly on the command line:
+
+    ```bash
+    ris-enrich input_file.ris -o output_file.ris --email you@example.com
+    ```
 
 ## Contributing
 
