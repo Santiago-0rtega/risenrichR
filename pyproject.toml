@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ris-enrich"
-version = "0.1.0"
+version = "0.1.6"
 authors = [
-  { name="Eduardo Santos", email="esantos2@ualberta.ca" }
+  { name="Eduardo S. A. Santos", email="esantos2@ualberta.ca" }
 ]
 description = "An automated tool to enrich RIS bibliography files with full abstracts via academic APIs."
 readme = "README.md"

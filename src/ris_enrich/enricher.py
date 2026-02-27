@@ -96,14 +96,14 @@ def clean_html_tags(text):
 
 def normalize_text(text):
     """
-    Standardizes text by using unidecode for transliteration
-    and removing punctuation.
+    Standardizes text by using NFKC normalization (handling international characters)
+    and removing punctuation, but PRESERVING accents.
     """
     if not text:
         return ""
-    # Transliterate to ASCII (handles international characters robustly)
-    norm = unidecode(text).lower()
-    # Strip punctuation
+    # NFKC normalizes characters (e.g., full-width to half-width) but keeps accents composed
+    norm = unicodedata.normalize('NFKC', text).lower()
+    # Strip punctuation (\w natively supports international word characters like 'ç', 'ã', 'ñ')
     return re.sub(r'[^\w\s]', '', norm)
 
 def verify_title_match(query_title, result_title, threshold=SIMILARITY_THRESHOLD):
