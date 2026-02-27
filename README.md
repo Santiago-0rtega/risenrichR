@@ -50,6 +50,7 @@ To test the tool with the included sample data, run:
 
 ```bash
 ris-enrich data/GoogleScholarPortugueseMateChoiceExample.ris
+```
 
 ## Contributing
 
