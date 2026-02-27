@@ -33,4 +33,10 @@ When researchers export search results, they are frequently left with snippets r
 
 ESAS, as well as this research work, are supported by the Canada Excellence Research Chairs (CERC) program (grant number CERC-2022-00074).
 
+
+# AI usage disclosure
+- **Tool use:** For this paper, I used Google Gemini 3.1 Pro to write the main code of this open-source Python package, and to prepare the initial versions of the documents of the github repository.
+
+- **The nature and scope of assistance:** Assistance was used for code generation, refactoring, and test scaffolding.
+
 # References
