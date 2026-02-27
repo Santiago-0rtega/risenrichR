@@ -87,30 +87,28 @@ def clean_html_tags(text):
     clean = re.sub(r'<[^>]+>', ' ', text)
     return re.sub(r'\s+', ' ', clean).strip()
 
+def normalize_text(text):
+    """
+    Standardizes text by using NFKC normalization (handling international characters)
+    and removing punctuation.
+    """
+    if not text:
+        return ""
+    # Standardize character encoding (fixes full-width vs half-width and diacritics)
+    norm = unicodedata.normalize('NFKC', text).lower()
+    # Strip punctuation (\w natively supports international word characters)
+    return re.sub(r'[^\w\s]', '', norm)
+
 def verify_title_match(query_title, result_title, threshold=SIMILARITY_THRESHOLD):
     """
     Compares two titles to verify if the API returned the correct paper.
-    Uses NFKC normalization to safely handle Cyrillic, logographic, and 
-    diacritic-heavy languages.
-    
-    Args:
-        query_title (str): The original title from the .ris file.
-        result_title (str): The title returned by the API database.
-        threshold (float): The required similarity ratio (0.0 to 1.0).
-        
-    Returns:
-        bool: True if the similarity meets or exceeds the threshold, False otherwise.
     """
     if not query_title or not result_title:
         return False
         
-    # Standardize character encoding (fixes full-width vs half-width and diacritics)
-    norm_q = unicodedata.normalize('NFKC', query_title).lower()
-    norm_r = unicodedata.normalize('NFKC', result_title).lower()
-        
-    # Strip punctuation (\w natively supports international word characters)
-    clean_q = re.sub(r'[^\w\s]', '', norm_q)
-    clean_r = re.sub(r'[^\w\s]', '', norm_r)
+    # Use the helper function we just created
+    clean_q = normalize_text(query_title)
+    clean_r = normalize_text(result_title)
     
     similarity = difflib.SequenceMatcher(None, clean_q, clean_r).ratio()
     return similarity >= threshold
