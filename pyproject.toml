@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ris-enrich"
-version = "0.1.6"
+version = "0.1.8"
 authors = [
   { name="Eduardo S. A. Santos", email="esantos2@ualberta.ca" }
 ]
