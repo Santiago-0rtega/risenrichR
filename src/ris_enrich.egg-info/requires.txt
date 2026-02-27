@@ -1,0 +1,4 @@
+rispy
+requests
+rapidfuzz
+unidecode
