@@ -1,5 +1,5 @@
 ---
-title: 'ris-enrich: An automated tool for enriching bibliographic RIS files with full abstracts'
+title: 'ris-enrich: An automated Python tool for enriching bibliographic RIS files with full abstracts'
 tags:
   - Python
   - systematic reviews
@@ -28,7 +28,50 @@ The preparation of a preregistration protocol and the subsequent screening workl
 
 When researchers export search results, they are frequently left with snippets rather than full abstracts, rendering title-and-abstract screening virtually impossible without manual intervention. This is especially common from search records exported from Google Scholar that truncates abstracts. Google Scholar is one of the few search engines that retrieves academic records in non-English languages, thus being an important search engine in attempts to minimize bias in data collection for evidence synthesis studies.  `ris-enrich` automates the recovery of this missing metadata. By prioritizing a sequential API fallback architecture and enforcing an 80% title-similarity threshold using the `difflib` and `unicodedata` libraries, the software ensures high-fidelity data retrieval even across international, diacritic-heavy, and logographic languages. 
 
-`ris-enrich` was developed to directly support the screening workflows of university research centres, seamlessly preparing robust `.ris` datasets for assignment among primary and secondary screeners. 
+`ris-enrich` was developed to directly support the screening workflows of evidence synthesis studies, seamlessly preparing `.ris` datasets of bibliographic records that can be incorporated in the record screening process of the synthesis studies.
+
+# In practice
+
+To install the current version of the `ris-enrich` package, run the command:
+
+```bash
+pip install git+https://github.com/esantos2ua/ris-enrich.git
+```
+
+After installation, you can use the `ris-enrich` command line tool:
+
+```bash
+ris-enrich data/GoogleScholarPortugueseMateChoiceExample.ris
+```
+
+```
+Reading 'GoogleScholarPortuguse.ris'...
+Found 68 references. Starting enrichment...
+
+No email provided for Crossref API. Rate limits may be lower. Use --email or set RIS_ENRICH_EMAIL.
+[1/68] Searching: Caracterização da reprodução e ensaios de crescime...
+   -> Found abstract via OpenAlex (3887 chars)
+[2/68] Searching: The role of olfaction in sexual interactions of ba...
+   -> No exact matching abstract found.
+[3/68] Searching: Marcadores genéticos de previsão de fenótipos em c...
+   -> No exact matching abstract found.
+[4/68] Searching: Benchmarking na gestão de unidades de saúde: relev...
+   -> Found abstract via OpenAlex (466 chars)
+[5/68] Searching: O impacto da terceirização sobre os custos de mão-...
+   -> Found abstract via OpenAlex (1232 chars)
+...
+
+Done! Safely updated 22 abstracts.
+```
+
+Using the `ris-enrich` command above will output to screen information about the .ris file being enriched. It will display the file name, followed by the number of references found in the file and the command will print a run-time statement of each record that is being enriched, with a message to the user on whether or not a complete abstract was found. At the end of the file, the output will display how many records had abstract information updated.
+
+The `ris-enrich` command will also create a `enrichment_log.txt` log file with the record of the enrichment information. Finally, the command will create a new .ris file with the suffix `_Enriched.ris` that contains the original inputed records with the updated abstract field containing the new complete abstract, when available.
+
+
+# Current applications
+
+`ris-enrich` was developed as part of an evidence synthesis study that is updating two meta-analyses in Ecology and Evolution. `ris-enrich` was used to enrich bibliographic records that were retrieved from literature searches conducted in Japanese, Polish, Portuguese, Russian, Simplified/Traditional Chinese, and Spanish on Google Scholar using the application Publish or Perish software [@harzingPublishPerish2007]. With `ris-enrich`, I was able to enrich a set of 425 bibliographic records with 89 complete abstracts, a 21% average improvement considering the six languages. This improvement has clear benefits for screeners that are reading titles and abstracts of these records to make decisions on whether a record should be included for full-text screening in the data pipeline of the study.
 
 # Acknowledgements
 
@@ -39,5 +82,7 @@ ESAS, as well as this research work, are supported by the Canada Excellence Rese
 - **Tool use:** For this paper, I used Google Gemini 3.1 Pro to write the main code of this open-source Python package, and to prepare the initial versions of the documents of the github repository.
 
 - **The nature and scope of assistance:** Assistance was used for code generation, refactoring, and test scaffolding.
+
+- **Confirmation of review:** ESAS reviewed, edited, validated all AI-assisted outputs and made the core design decisions in this project.
 
 # References
