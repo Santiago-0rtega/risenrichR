@@ -45,7 +45,7 @@ ris-enrich data/GoogleScholarPortugueseMateChoiceExample.ris
 ```
 
 ```
-Reading 'GoogleScholarPortuguse.ris'...
+Reading 'GoogleScholarPortugueseMateChoiceExample.ris'...
 Found 68 references. Starting enrichment...
 
 No email provided for Crossref API. Rate limits may be lower. Use --email or set RIS_ENRICH_EMAIL.
@@ -67,6 +67,25 @@ Done! Safely updated 22 abstracts.
 Using the `ris-enrich` command above will output to screen information about the .ris file being enriched. It will display the file name, followed by the number of references found in the file and the command will print a run-time statement of each record that is being enriched, with a message to the user on whether or not a complete abstract was found. At the end of the file, the output will display how many records had abstract information updated.
 
 The `ris-enrich` command will also create a `enrichment_log.txt` log file with the record of the enrichment information. Finally, the command will create a new .ris file with the suffix `_Enriched.ris` that contains the original inputed records with the updated abstract field containing the new complete abstract, when available.
+
+## Arguments
+
+The `ris-enrich` command can be implemented with the following arguments:
+
+-   `input_file`: Path to the original `.ris` file (Required).
+-   `-o`, `--output`: Path to save the enriched `.ris` file. Defaults to `*_Enriched.ris`.
+-   `-l`, `--log`: Path to save the execution log. Defaults to `enrichment_log.txt`.
+-   `-e`, `--email`: **(optional)** Your email address, which will be included in the User-Agent header when querying the Crossref API. Providing an email helps Crossref identify polite usage and may increase rate limits. You can also set this value by exporting `RIS_ENRICH_EMAIL` in your environment before running the tool:
+
+    ```bash
+    export RIS_ENRICH_EMAIL=you@example.com
+    ris-enrich input_file.ris -o output_file.ris
+    ```
+    or pass it directly on the command line:
+
+    ```bash
+    ris-enrich input_file.ris -o output_file.ris --email you@example.com
+    ```
 
 
 # Current applications
