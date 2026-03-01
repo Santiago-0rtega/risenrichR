@@ -9,11 +9,12 @@ tags:
 authors:
   - name: Eduardo S. A. Santos
     orcid: 0000-0002-0434-3655
-    affiliation: 1
+    affiliation:
+    - ref: 1
 affiliations:
- - name: Collaboration for Open Science and Synthesis in Ecology and Evolution, Department of Biological Sciences, University of Alberta, Edmonton, AB, T6G 2E9, Canada
-   index: 1
-date: 26 February 2026
+ - name: COSSEE, Collaboration for Open Science and Synthesis in Ecology and Evolution, Department of Biological Sciences, University of Alberta, Edmonton, AB, T6G 2E9, Canada
+   id: 1
+date: today
 bibliography: paper.bib
 link-citations: true
 ---
