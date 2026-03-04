@@ -51,6 +51,9 @@ To test the tool with the included sample data, run:
 ```bash
 ris-enrich data/GoogleScholarPortugueseMateChoiceExample.ris
 ```
+## Future Roadmap
+- [ ] Investigate direct integration with regional non-English databases (e.g., SciELO and LA Referencia for Latin America, J-STAGE for Japan) to catch records not yet indexed by major aggregators.
+- [ ] Add support for custom API keys for power users.
 
 ## Contributing
 
