@@ -104,7 +104,7 @@ The author declares that no competing interests exist.
 
 # Acknowledgements
 
-ESAS, as well as this research work, are supported by the Canada Excellence Research Chairs (CERC) program (grant number CERC-2022-00074).
+ESAS, as well as this research work, are supported by the Canada Excellence Research Chairs (CERC) program (grant number CERC-2022-00074). ESAS would like to thank Ayumi Mizuno and Santiago Ortega for testing the software and providing feedback on the user experience.
 
 
 # AI usage disclosure
