@@ -117,3 +117,4 @@ paper/paper_files/libs/quarto-html/tabsets/tabsets.js
 
 # BUT! Do NOT ignore my example data
 !data/*.ris
+.Rproj.user

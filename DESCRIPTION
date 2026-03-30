@@ -1,0 +1,30 @@
+Package: risenricher
+Title: Enrich Scholarly References Using Open APIs
+Version: 0.0.1
+Authors@R: 
+    person("Santiago Ortega", "Ed",  role = c("co-aut", "co-cre"))
+Description: Batch enrichment and harmonization of scholarly references
+    using multiple open scholarly APIs. Supports candidate scoring,
+    field-level provenance, caching, and optional Python fallback.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+    cli,
+    dplyr,
+    httr2,
+    jsonlite,
+    memoise,
+    methods,
+    purrr,
+    reticulate,
+    rlang,
+    stringdist,
+    stringr,
+    tibble
+Suggests:
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
